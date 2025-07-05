@@ -1,10 +1,13 @@
 # MAC Address Finder / Поиск MAC-адреса
 
-A simple C program that finds the MAC address of a remote host by / Простая программа на C для поиска MAC-адреса удаленного хоста:
+A simple C program that finds the MAC address of a remote host by / 
+Простая программа на C для поиска MAC-адреса удаленного хоста:
 
-    Sending an ICMP ping to the target IP address / Отправляет ICMP ping на указанный IP-адрес
+    Sending an ICMP ping to the target IP address / 
+    Отправляет ICMP ping на указанный IP-адрес
 
-    Checking the local ARP cache for the corresponding MAC address / Проверяет локальный ARP-кэш для поиска соответствующего MAC-адреса
+    Checking the local ARP cache for the corresponding MAC address / 
+    Проверяет локальный ARP-кэш для поиска соответствующего MAC-адреса
 
 
 ## Requirements / Требования
@@ -13,20 +16,22 @@ A simple C program that finds the MAC address of a remote host by / Проста
 
     GCC compiler / Компилятор GCC
 
-    Root privileges (required for raw sockets) / Права root (требуются для работы с raw-сокетами)
+    Root privileges (required for raw sockets) / 
+    Права root (требуются для работы с raw-сокетами)
 
 
 ## Build and Run / Сборка и запуск
-bash
+
 
 ### Compile the program / Компиляция программы
 
-```
+```bash
 make
 ```
 
 
-### Run with sudo (requires root privileges) / Запуск с sudo (требуются права root)
+### Run with sudo (requires root privileges) / 
+### Запуск с sudo (требуются права root)
 
 ```
 sudo ./mac <IP_ADDRESS>
@@ -39,11 +44,14 @@ sudo ./mac 192.168.1.1
 
 ### How It Works / Как это работает
 
-    The program sends an ICMP echo request (ping) to the specified IP address / Программа отправляет ICMP echo-запрос (ping) на указанный IP-адрес
+    The program sends an ICMP echo request (ping) to the specified IP address / 
+    Программа отправляет ICMP echo-запрос (ping) на указанный IP-адрес
 
-    If it receives a reply, it checks the local ARP cache (/proc/net/arp) / При получении ответа проверяет локальный ARP-кэш (/proc/net/arp)
+    If it receives a reply, it checks the local ARP cache (/proc/net/arp) / 
+    При получении ответа проверяет локальный ARP-кэш (/proc/net/arp)
 
-    If found, it displays the MAC address associated with the IP / При нахождении выводит MAC-адрес, соответствующий IP
+    If found, it displays the MAC address associated with the IP / 
+    При нахождении выводит MAC-адрес, соответствующий IP
 
 
 ### Clean / Очистка
@@ -60,9 +68,12 @@ make cl     # Format code with clang-format / Форматирование ко�
 
 ### Notes / Примечания
 
-    Requires root privileges to create raw sockets / Требуются права root для создания raw-сокетов
+    Requires root privileges to create raw sockets / 
+    Требуются права root для создания raw-сокетов
 
-    Will only work if the target responds to ICMP and is in the same network segment / Будет работать только если цель отвечает на ICMP и находится в том же сегменте сети
+    Will only work if the target responds to ICMP and is in the same network segment / 
+    Будет работать только если цель отвечает на ICMP и находится в том же сегменте сети
 
-    ARP cache entries may time out if the host hasn't been contacted recently / Записи в ARP-кэше могут быть удалены по таймауту, если хост не использовался недавно
+    ARP cache entries may time out if the host hasn't been contacted recently / 
+    Записи в ARP-кэше могут быть удалены по таймауту, если хост не использовался недавно
     
